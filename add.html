@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>زیادکردنی فیلم — My Movies</title>
+  <meta name="description" content="فیلمێکی نوێ زیاد بکە بۆ لیستەکەت" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main class="container add-container">
+    <div class="glass-panel add-card animate-fade-in">
+      <div class="add-header">
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="17" y1="7" x2="22" y2="7"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="2" y1="17" x2="7" y2="17"></line></svg>
+          زیادکردنی فیلم
+        </h2>
+        <a href="index.html" class="btn-secondary back-btn">
+          گەڕانەوە
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+      <form id="add-form" class="add-form">
+        <div class="form-grid">
+          <div class="form-column">
+            <div class="input-group">
+              <label class="input-label" for="title">ناوی فیلم (Movie Title)</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="input-field"
+                placeholder="بۆ نموونە: Inception"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="genre">جۆر (Genre)</label>
+              <select id="genre" name="genre" class="input-field" required>
+                <option value="">هەڵبژێرە...</option>
+                <option value="Action">Action (ئەکشن)</option>
+                <option value="Romance">Romance (ڕۆمانسی)</option>
+                <option value="Comedy">Comedy (کۆمیدی)</option>
+                <option value="Drama">Drama (دراما)</option>
+                <option value="Sci-Fi">Sci-Fi (خەیاڵی زانستی)</option>
+                <option value="Horror">Horror (ترسناک)</option>
+                <option value="Thriller">Thriller (هەستبزوێن)</option>
+                <option value="Animation">Animation (ئەنیمەیشن)</option>
+                <option value="Other">Other (هیتر)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="input-group">
+              <label class="input-label">وێنەی فیلم (Poster Image)</label>
+              <div class="image-upload-area" id="upload-area">
+                <div class="upload-placeholder" id="upload-placeholder">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="upload-icon"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path></svg>
+                  <p>کرتە بکە بۆ هەڵبژاردنی وێنە</p>
+                </div>
+                <img id="image-preview" class="image-preview" src="" alt="Preview" style="display:none;" />
+              </div>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="hidden-input"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="add-error" class="error-message" style="display:none;"></div>
+        <div id="add-success" class="success-message" style="display:none;">✓ فیلمەکە بەسەرکەوتوویی زیادکرا!</div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary submit-btn" id="submit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            پاشەکەوتکردن
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
