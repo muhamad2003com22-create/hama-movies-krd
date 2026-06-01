@@ -137,6 +137,9 @@ let allMovies = [];
 function renderMovies(movies, grid, filterSection) {
   allMovies = movies;
 
+  // Update count badge
+  updateCount(movies.length);
+
   // Render filter buttons
   const genres = Array.from(new Set(movies.map((m) => m.genre)));
 
@@ -148,6 +151,14 @@ function renderMovies(movies, grid, filterSection) {
   }
 
   renderGrid(movies, grid);
+}
+
+function updateCount(total) {
+  const badge = document.getElementById('movie-count');
+  const num = document.getElementById('count-number');
+  if (!badge || !num) return;
+  num.textContent = total;
+  badge.style.display = total > 0 ? 'inline-flex' : 'none';
 }
 
 function renderFilters(genres, container) {
@@ -252,6 +263,7 @@ async function confirmDelete() {
     await deleteDoc(doc(db, 'movies', pendingDeleteId));
     closeDeleteModal();
     allMovies = allMovies.filter((m) => m.id !== pendingDeleteId);
+    updateCount(allMovies.length);
     const genres = Array.from(new Set(allMovies.map((m) => m.genre)));
     renderFilters(genres, document.getElementById('filter-section'));
     renderGrid(allMovies, document.getElementById('movies-grid'));
